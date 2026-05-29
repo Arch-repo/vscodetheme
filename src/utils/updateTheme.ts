@@ -14,12 +14,6 @@ export async function updateTheme() {
     )
   }
 
-  let promiseArr = []
-  promiseArr = [
-    writeTheme('OneDark-Pro.json'),
-    writeTheme('OneDark-Pro-flat.json', 'One Dark Pro Flat'),
-    writeTheme('OneDark-Pro-darker.json', 'One Dark Pro Darker'),
-  ]
-  await Promise.all(promiseArr)
+  await writeTheme('Anto426-Rofi-Dynamic.json', 'Anto426 Rofi Dynamic')
   promptToReload()
 }

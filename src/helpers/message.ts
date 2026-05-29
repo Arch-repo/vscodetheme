@@ -3,11 +3,11 @@ import { window as Window } from 'vscode'
 const MESSAGES = {
   CHANGELOG: {
     message:
-      'One Dark Pro Theme was updated. Check the changelog for more details.',
+      'Anto426 Rofi Dynamic was updated. Check the changelog for more details.',
     options: { cancel: 'Maybe later', ok: 'Show me' }
   },
   INSTALLATION: {
-    message: 'Thank you for using One Dark Pro!'
+    message: 'Thank you for using Anto426 Rofi Dynamic!'
   }
 }
 

@@ -3,7 +3,7 @@ import data from './themeData'
 async function createEditorTokens(config: ThemeConfiguration) {
   return config.editorTheme in data.editorThemes
     ? (await data.editorThemes[config.editorTheme]()).default
-    : (await data.editorThemes['One Dark Pro']()).default
+    : (await data.editorThemes['Anto426 Rofi Dynamic']()).default
 }
 const uniqBy = (arr, fn, set = new Set()) =>
   arr.filter((el) =>
@@ -92,7 +92,7 @@ function configFactory(configuration) {
   }
 }
 export class Theme {
-  name = 'One Dark Pro'
+  name = 'Anto426 Rofi Dynamic'
   type = 'dark'
   semanticHighlighting = true
   semanticTokenColors
@@ -101,6 +101,7 @@ export class Theme {
 
   constructor(configuration: ThemeConfiguration) {
     const themeTokens = configFactory(configuration)
+    this.name = 'Anto426 Rofi Dynamic'
     this.semanticTokenColors = themeTokens.semanticTokenColors
     this.tokenColors = themeTokens.tokenColors
     // this.colors = createEditorTokens(configuration)

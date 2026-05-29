@@ -1,17 +1,17 @@
 {
-  "name": "material-theme",
-  "displayName": "One Dark Pro",
-  "description": "Atom's iconic One Dark theme for Visual Studio Code",
-  "version": "3.19.0",
-  "publisher": "zhuangtongfa",
+  "name": "anto426-vscode-theme",
+  "displayName": "Anto426 Rofi Dynamic",
+  "description": "Dynamic VS Code theme aligned with the Anto426 Rofi design.",
+  "version": "0.1.0",
+  "publisher": "Anto426",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Binaryify/OneDark-Pro/issues"
+    "url": "https://github.com/Anto426/vscodetheme/issues"
   },
-  "homepage": "https://binaryify.github.io/OneDark-Pro/",
+  "homepage": "https://github.com/Anto426/vscodetheme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Binaryify/OneDark-Pro"
+    "url": "https://github.com/Anto426/vscodetheme"
   },
   "engines": {
     "vscode": "^1.76.0"
@@ -70,92 +70,55 @@
       {
         "command": "oneDarkPro.showChangelog",
         "title": "%description.oneDarkPro.showChangelog%",
-        "category": "OneDark Pro"
+        "category": "Anto426 Rofi Dynamic"
       },
       {
         "command": "oneDarkPro.setVivid",
         "title": "%description.oneDarkPro.setVivid%",
-        "category": "OneDark Pro"
+        "category": "Anto426 Rofi Dynamic"
       },
       {
         "command": "oneDarkPro.cancelVivid",
         "title": "%description.oneDarkPro.cancelVivid%",
-        "category": "OneDark Pro"
+        "category": "Anto426 Rofi Dynamic"
       },
       {
         "command": "oneDarkPro.setItalic",
         "title": "%description.oneDarkPro.setItalic%",
-        "category": "OneDark Pro"
+        "category": "Anto426 Rofi Dynamic"
       },
       {
         "command": "oneDarkPro.cancelItalic",
         "title": "%description.oneDarkPro.cancelItalic%",
-        "category": "OneDark Pro"
+        "category": "Anto426 Rofi Dynamic"
       },
       {
         "command": "oneDarkPro.setBold",
         "title": "%description.oneDarkPro.setBold%",
-        "category": "OneDark Pro"
+        "category": "Anto426 Rofi Dynamic"
       },
       {
         "command": "oneDarkPro.cancelBold",
         "title": "%description.oneDarkPro.cancelBold%",
-        "category": "OneDark Pro"
+        "category": "Anto426 Rofi Dynamic"
       }
     ],
     "themes": [
       {
-        "label": "One Dark Pro",
+        "label": "Anto426 Rofi Dynamic",
         "uiTheme": "vs-dark",
-        "path": "./themes/OneDark-Pro.json"
-      },
-      {
-        "label": "One Dark Pro Flat",
-        "uiTheme": "vs-dark",
-        "path": "./themes/OneDark-Pro-flat.json"
-      },
-      {
-        "label": "One Dark Pro Darker",
-        "uiTheme": "vs-dark",
-        "path": "./themes/OneDark-Pro-darker.json"
-      },
-      {
-        "label": "One Dark Pro Mix",
-        "uiTheme": "vs-dark",
-        "path": "./themes/OneDark-Pro-mix.json"
-      },
-      {
-        "label": "One Dark Pro Night Flat",
-        "uiTheme": "vs-dark",
-        "path": "./themes/OneDark-Pro-night-flat.json"
+        "path": "./themes/Anto426-Rofi-Dynamic.json"
       }
     ],
     "configuration": {
-      "title": "One Dark Pro",
+      "title": "Anto426 Rofi Dynamic",
       "properties": {
         "oneDarkPro.editorTheme": {
           "type": "string",
-          "default": "One Dark Pro",
+          "default": "Anto426 Rofi Dynamic",
           "markdownDescription": "%description.oneDarkPro.editorTheme%",
           "enum": [
-            "One Dark Pro",
-            "One Dark Pro Flat",
-            "Nord",
-            "Solarized",
-            "Solarized Flat",
-            "Shadow",
-            "Panda",
-            "Ayu",
-            "VS Code",
-            "Just Black",
-            "One Dark Pro Darker",
-            "One Dark Pro Mix",
-            "Ocean",
-            "Tokyo",
-            "Retro",
-            "Gnome",
-            "Dark Modern",
-            "One Dark Pro Night Flat"
+            "Anto426 Rofi Dynamic"
           ]
         },
         "oneDarkPro.italic": {
@@ -251,19 +214,19 @@
             }
           },
           "additionalProperties": false,
-          "markdownDescription": "Code highlight color, read more [docs](https://binaryify.github.io/OneDark-Pro/#/?id=highlight-color-custom)"
+          "markdownDescription": "Code highlight colors for the Anto426 Rofi Dynamic theme."
         }
       }
     }
   },
   "icon": "icon.png",
   "keywords": [
-    "one dark",
-    "onedark",
-    "one dark pro",
-    "onedark pro",
+    "anto426",
+    "rofi",
+    "dynamic",
+    "wallpaper",
     "theme",
-    "atom"
+    "hyprland"
   ],
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -294,7 +257,7 @@
     "webpack-cli": "4.9.2"
   },
   "galleryBanner": {
-    "color": "#2d323b",
+    "color": "#211b33",
     "theme": "dark"
   },
   "dependencies": {
@@ -307,21 +270,5 @@
     },
     "virtualWorkspaces": true
   },
-  "badges": [
-    {
-      "url": "https://vsmarketplacebadges.dev/version/zhuangtongfa.Material-theme.png",
-      "href": "https://marketplace.visualstudio.com/items/zhuangtongfa.Material-theme",
-      "description": "Extension version"
-    },
-    {
-      "url": "https://vsmarketplacebadges.dev/installs/zhuangtongfa.Material-theme.png",
-      "href": "https://marketplace.visualstudio.com/items/zhuangtongfa.Material-theme",
-      "description": "Extension installs"
-    },
-    {
-      "url": "https://vsmarketplacebadges.dev/rating/zhuangtongfa.Material-theme.png",
-      "href": "https://marketplace.visualstudio.com/items/zhuangtongfa.Material-theme",
-      "description": "Extension Rating"
-    }
-  ]
+  "badges": []
 }
