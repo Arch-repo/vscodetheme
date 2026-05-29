@@ -1,7 +1,6 @@
 /*
 
-Atom One Dark by Daniel Gamage
-Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
+Anto426 Rofi Dynamic markdown code colors
 
 base:    #282c34
 mono-1:  #abb2bf
@@ -18,10 +17,7 @@ hue-6-2: #e6c07b
 
 */
 .vscode-dark {
-  &[data-vscode-theme-name='One Dark Pro Mix'],
-  &[data-vscode-theme-name='One Dark Pro Flat'],
-  &[data-vscode-theme-name='One Dark Pro Darker'],
-  &[data-vscode-theme-name='One Dark Pro'] {
+  &[data-vscode-theme-name='Anto426 Rofi Dynamic'] {
     .hljs {
       display: block;
       overflow-x: auto;
