@@ -6,12 +6,12 @@
   "publisher": "Anto426",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Anto426/vscodetheme/issues"
+    "url": "https://github.com/Arch-repo/vscodetheme/issues"
   },
-  "homepage": "https://github.com/Anto426/vscodetheme",
+  "homepage": "https://github.com/Arch-repo/vscodetheme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Anto426/vscodetheme"
+    "url": "https://github.com/Arch-repo/vscodetheme"
   },
   "engines": {
     "vscode": "^1.76.0"
@@ -272,3 +272,4 @@
   },
   "badges": []
 }
+
