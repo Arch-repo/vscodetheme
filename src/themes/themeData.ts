@@ -1913,7 +1913,7 @@ export default {
         name: 'Comments',
         scope: 'comment, punctuation.definition.comment',
         settings: {
-          foreground: colorType.lightDark,
+          foreground: colorType.dark,
         },
       },
       {
