@@ -43,13 +43,13 @@
   "scripts": {
     "docs": "docsify serve docs",
     "build:theme": "ts-node --project scripts/tsconfig.json scripts/generate-theme.ts",
-    "build:ts": "tsc -p src",
+    "build:ts": "tsc -p src && mkdir -p out/webview && cp -r src/webview-assets/* out/webview/",
     "build": "yarn build:sass && yarn build:theme && yarn build:ts",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "watch:theme": "nodemon ./scripts/generate-theme.ts",
     "watch:ts": "yarn build:ts -w",
-    "vscode:prepublish": "yarn build && yarn package-web",
+    "vscode:prepublish": "yarn build",
     "package": "vsce package",
     "build:sass": "yarn sass --no-source-map scss:styles && yarn sass --no-source-map scss:styles/origin",
     "compile-web": "webpack --config ./build/web-extension.webpack.config.js",
@@ -101,6 +101,49 @@
         "command": "oneDarkPro.cancelBold",
         "title": "%description.oneDarkPro.cancelBold%",
         "category": "Anto426 Rofi Dynamic"
+      },
+      {
+        "command": "bootty.newTerminal",
+        "title": "BooTTY: New Terminal"
+      },
+      {
+        "command": "bootty.newTerminalInEditor",
+        "title": "BooTTY: New Terminal in Editor"
+      },
+      {
+        "command": "bootty.newTerminalInPanel",
+        "title": "BooTTY: New Terminal in Panel",
+        "icon": "$(plus)"
+      },
+      {
+        "command": "bootty.togglePanel",
+        "title": "BooTTY: Toggle Terminal Panel"
+      },
+      {
+        "command": "bootty.newTerminalHere",
+        "title": "BooTTY: New Terminal Here"
+      },
+      {
+        "command": "bootty.nextTab",
+        "title": "BooTTY: Next Terminal Tab"
+      },
+      {
+        "command": "bootty.previousTab",
+        "title": "BooTTY: Previous Terminal Tab"
+      },
+      {
+        "command": "bootty.search",
+        "title": "BooTTY: Find in Terminal"
+      },
+      {
+        "command": "bootty.splitTerminal",
+        "title": "BooTTY: Split Terminal",
+        "icon": "$(split-horizontal)"
+      },
+      {
+        "command": "bootty.openNative",
+        "title": "Apri Ghostty Nativo",
+        "icon": "$(screen-normal)"
       }
     ],
     "themes": [
@@ -215,9 +258,160 @@
           },
           "additionalProperties": false,
           "markdownDescription": "Code highlight colors for the Anto426 Rofi Dynamic theme."
+        },
+        "bootty.fontFamily": {
+          "type": "string",
+          "default": "",
+          "description": "Font family for BooTTY. Leave empty to use editor.fontFamily."
+        },
+        "bootty.fontSize": {
+          "type": "number",
+          "default": 0,
+          "minimum": 6,
+          "maximum": 72,
+          "description": "Font size in pixels. Set to 0 to use editor.fontSize."
+        },
+        "bootty.defaultTerminalLocation": {
+          "type": "string",
+          "enum": [
+            "panel",
+            "editor"
+          ],
+          "default": "panel",
+          "description": "Where new terminals open by default"
+        },
+        "bootty.bell": {
+          "type": "string",
+          "enum": [
+            "visual",
+            "none"
+          ],
+          "default": "visual",
+          "description": "Bell notification style. 'visual' shows a flash and status bar notification, 'none' disables all bell feedback."
+        },
+        "bootty.notifications": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show VS Code notifications from terminal applications (OSC 9 escape sequences)."
         }
       }
-    }
+    },
+    "viewsContainers": {
+      "panel": [
+        {
+          "id": "bootty-terminal-panel",
+          "title": "Ghostty",
+          "icon": "icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "bootty-terminal-panel": [
+        {
+          "id": "boottyTerminalPanel",
+          "name": "Terminal",
+          "type": "webview"
+        }
+      ]
+    },
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "bootty.newTerminalHere",
+          "group": "navigation"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "bootty.openNative",
+          "when": "view == boottyTerminalPanel",
+          "group": "navigation"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "-workbench.action.terminal.toggleTerminal",
+        "key": "ctrl+`"
+      },
+      {
+        "command": "-workbench.action.terminal.new",
+        "key": "ctrl+shift+`"
+      },
+      {
+        "command": "-actions.find",
+        "key": "cmd+f",
+        "when": "focusedView == 'boottyTerminalPanel'"
+      },
+      {
+        "command": "-actions.find",
+        "key": "ctrl+f",
+        "when": "focusedView == 'boottyTerminalPanel'"
+      },
+      {
+        "command": "-actions.find",
+        "key": "cmd+f",
+        "when": "activeWebviewPanelId == 'boottyTerminal'"
+      },
+      {
+        "command": "-actions.find",
+        "key": "ctrl+f",
+        "when": "activeWebviewPanelId == 'boottyTerminal'"
+      },
+      {
+        "command": "-workbench.action.nextEditor",
+        "key": "cmd+shift+]",
+        "when": "focusedView == 'boottyTerminalPanel'"
+      },
+      {
+        "command": "-workbench.action.previousEditor",
+        "key": "cmd+shift+[",
+        "when": "focusedView == 'boottyTerminalPanel'"
+      },
+      {
+        "command": "bootty.togglePanel",
+        "key": "ctrl+`"
+      },
+      {
+        "command": "bootty.newTerminal",
+        "key": "ctrl+shift+`"
+      },
+      {
+        "command": "bootty.newTerminalInPanel",
+        "key": "ctrl+shift+t",
+        "mac": "cmd+shift+t"
+      },
+      {
+        "command": "bootty.nextTab",
+        "key": "ctrl+shift+]",
+        "mac": "cmd+shift+]",
+        "when": "focusedView == 'boottyTerminalPanel'"
+      },
+      {
+        "command": "bootty.previousTab",
+        "key": "ctrl+shift+[",
+        "mac": "cmd+shift+[",
+        "when": "focusedView == 'boottyTerminalPanel'"
+      },
+      {
+        "command": "bootty.search",
+        "key": "ctrl+f",
+        "mac": "cmd+f",
+        "when": "focusedView == 'boottyTerminalPanel'"
+      },
+      {
+        "command": "bootty.search",
+        "key": "ctrl+f",
+        "mac": "cmd+f",
+        "when": "activeWebviewPanelId == 'boottyTerminal'"
+      },
+      {
+        "command": "bootty.splitTerminal",
+        "key": "ctrl+\\",
+        "mac": "cmd+\\",
+        "when": "focusedView == 'boottyTerminalPanel'"
+      }
+    ]
   },
   "icon": "icon.png",
   "keywords": [
@@ -261,8 +455,11 @@
     "theme": "dark"
   },
   "dependencies": {
+    "@0xbigboss/ghostty-web": "^0.5.0",
     "@types/marked": "^4.0.1",
-    "marked": "4"
+    "@vscode/codicons": "^0.0.44",
+    "marked": "4",
+    "node-pty": "^1.0.0"
   },
   "capabilities": {
     "untrustedWorkspaces": {
@@ -272,4 +469,3 @@
   },
   "badges": []
 }
-
